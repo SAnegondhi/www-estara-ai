@@ -51,9 +51,9 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const from = process.env.RESEND_FROM;
   if (!apiKey || !to || !from) {
-    console.error('contact: RESEND_API_KEY, CONTACT_TO_EMAIL or CONTACT_FROM_EMAIL is not set');
+    console.error('contact: RESEND_API_KEY, CONTACT_TO_EMAIL or RESEND_FROM is not set');
     return NextResponse.json({ error: 'Messages cannot be delivered right now. Please try again later.' }, { status: 503 });
   }
 
